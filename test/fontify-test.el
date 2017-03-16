@@ -2233,6 +2233,22 @@ payeee Charity
    '("payeee Charity
 "  ledger-font-default-face)))
 
+(ert-deftest ledger-fontify/test-099 ()
+  "block comments"
+  :tags '(font regress)
+
+  (ledger-test-font-lock
+   (ledger-test-font-lock
+    "
+comment
+payee KFC
+end comment
+"
+    '("comment
+payee KFC
+end comment"  ledger-font-comment-face))
+   ))
+
 
 (provide 'fontify-test)
 
